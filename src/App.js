@@ -13,19 +13,14 @@ class App extends Component {
     };
   }
 
-  componentDidMount() {
-    (async function () {
-      try {
-        // console.log("cDM start");
-        const res = await fetch(`https://jsonplaceholder.typicode.com/users`);
-        const data = await res.json();
-        // console.log("before setState");
-        this.setState({ monsters: data });
-        // console.log("cDM end");
-      } catch (err) {
-        console.log(err);
-      }
-    }.call(this));
+  async componentDidMount() {
+    try {
+      const res = await fetch(`https://jsonplaceholder.typicode.com/users`);
+      const data = await res.json();
+      this.setState({ monsters: data });
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   handleChange(e) {
@@ -62,4 +57,25 @@ export default App;
 //     // console.log(this.state)
 //   );
 //   // console.log("onChange setStart after");
+// }
+
+// componentDidMount() {
+//   (async function () {
+//     try {
+//       // console.log("cDM start");
+//       const res = await fetch(`https://jsonplaceholder.typicode.com/users`);
+//       const data = await res.json();
+//       // console.log("before setState");
+//       this.setState({ monsters: data });
+//       // console.log("cDM end");
+//     } catch (err) {
+//       console.log(err);
+//     }
+//   }.call(this));
+// }
+
+// componentDidMount() {
+//   fetch(`https://jsonplaceholder.typicode.com/users`)
+//     .then((response) => response.json())
+//     .then((users) => this.setState({ monsters: users }));
 // }

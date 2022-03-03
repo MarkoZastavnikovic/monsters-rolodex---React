@@ -1,7 +1,7 @@
 import React from "react";
 import "./search-box.styles.css";
 
-export const SearchBox = ({
+const SearchBox = ({
   placeholder = "placeholder",
   handleChange = () => console.log(`No handleChange property!`),
   ...rest
@@ -13,3 +13,5 @@ export const SearchBox = ({
     onChange={handleChange}
   />
 );
+
+export default SearchBox;
